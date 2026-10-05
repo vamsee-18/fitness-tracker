@@ -1,0 +1,136 @@
+/* FITNESS HERO */
+
+.fitness-hero {
+    position: relative;
+    min-height: 390px;
+    margin-bottom: 24px;
+    border-radius: 30px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.10);
+    box-shadow: 0 25px 70px rgba(0,0,0,.35);
+}
+
+.fitness-hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .8s ease;
+}
+
+.fitness-hero:hover img {
+    transform: scale(1.05);
+}
+
+.fitness-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(7,8,18,.96),
+        rgba(7,8,18,.65),
+        rgba(7,8,18,.20)
+    );
+}
+
+.fitness-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    padding: 65px 55px;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 8px 14px;
+    margin-bottom: 18px;
+    border-radius: 999px;
+
+    color: white;
+    background: rgba(124,92,255,.25);
+    border: 1px solid rgba(124,92,255,.45);
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.fitness-hero-content h1 {
+    margin: 0 0 16px;
+
+    color: white;
+
+    font-size: clamp(38px, 5vw, 68px);
+    line-height: .98;
+    font-weight: 900;
+}
+
+.fitness-hero-content p {
+    max-width: 520px;
+    margin: 0 0 28px;
+
+    color: rgba(255,255,255,.76);
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.hero-btn {
+    padding: 13px 20px;
+
+    border: 0;
+    border-radius: 14px;
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    background: linear-gradient(
+        135deg,
+        #7c5cff,
+        #4cc9f0
+    );
+
+    transition: .2s;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+}
+
+.hero-btn.secondary {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+}
+
+@media (max-width: 700px) {
+
+    .fitness-hero {
+        min-height: 430px;
+    }
+
+    .fitness-hero-content {
+        padding: 42px 28px;
+    }
+
+    .fitness-hero-content h1 {
+        font-size: 40px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-btn {
+        width: 100%;
+    }
+}

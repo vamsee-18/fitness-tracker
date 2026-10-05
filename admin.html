@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker | Admin Module</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<!-- LOGIN SCREEN -->
+<div id="loginScreen" class="login-screen">
+
+    <div class="login-card">
+
+        <div class="login-logo">FT</div>
+
+        <h1>Fitness Tracker</h1>
+        <p class="login-subtitle">Admin Management Console</p>
+
+        <form id="loginForm">
+
+            <div class="input-group">
+                <label>Admin Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="admin@fitnesstracker.com"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter password"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="login-btn">
+                Login to Admin Panel →
+            </button>
+
+        </form>
+
+        <div class="demo-login">
+            <b>Demo Login</b>
+            <span>Email: admin@fitnesstracker.com</span>
+            <span>Password: admin123</span>
+        </div>
+
+        <a href="index.html" class="user-link">
+            ← Back to User Module
+        </a>
+
+    </div>
+</div>
+
+
+<!-- ADMIN APPLICATION -->
+<div id="adminApp" class="admin-app hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logo">FT</div>
+
+            <div>
+                <h2>FITNESS</h2>
+                <span>TRACKER</span>
+            </div>
+        </div>
+
+        <div class="admin-profile">
+            <div class="profile-avatar">A</div>
+
+            <div>
+                <strong>Administrator</strong>
+                <small>System Admin</small>
+            </div>
+        </div>
+
+        <nav class="navigation">
+
+            <button class="nav-item active" data-page="dashboard">
+                <span>⌂</span>
+                Dashboard
+            </button>
+
+            <button class="nav-item" data-page="users">
+                <span>👥</span>
+                User Management
+            </button>
+
+            <button class="nav-item" data-page="exercises">
+                <span>💪</span>
+                Exercise Database
+            </button>
+
+            <button class="nav-item" data-page="nutrition">
+                <span>🥗</span>
+                Nutrition Database
+            </button>
+
+            <button class="nav-item" data-page="reports">
+                <span>📊</span>
+                Reports & Analytics
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="index.html" class="back-user">
+                ← User Module
+            </a>
+
+            <button id="logoutBtn" class="logout-btn">
+                ⎋ Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div>
+                <p class="top-label">ADMINISTRATION</p>
+                <h1 id="pageTitle">Dashboard</h1>
+            </div>
+
+            <div class="top-actions">
+
+                <div class="admin-status">
+                    <span class="status-dot"></span>
+                    System Online
+                </div>
+
+                <button id="themeBtn" class="icon-btn">
+                    ☀
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+        <section id="dashboardPage" class="page active-page">
+
+            <div class="welcome-banner">
+
+                <div>
+                    <span class="eyebrow">ADMIN OVERVIEW</span>
+
+                    <h2>
+                        Welcome back, Administrator 👋
+                    </h2>
+
+                    <p>
+                        Manage users, workouts, exercises and nutrition
+                        from one place.
+                    </p>
+                </div>
+
+                <div class="banner-icon">
+                    ⚡
+                </div>
+
+            </div>
+
+
+            <!-- STAT CARDS -->
+            <div class="stats-grid">
+
+                <div class="stat-card purple">
+                    <div class="stat-icon">👥</div>
+
+                    <div>
+                        <span>Total Users</span>
+                        <strong id="totalUsers">0</strong>
+                        <small>Registered users</small>
+                    </div>
+                </div>
+
+
+                <div class="stat-card green">
+                    <div class="stat-icon">✓</div>
+
+                    <div>
+                        <span>Active Users</span>
+                        <strong id="activeUsers">0</strong>
+                        <small>Currently active</small>
+                    </div>
+                </div>
+
+
+                <div class="stat-card blue">
+                    <div class="stat-icon">💪</div>
+
+                    <div>
+                        <span>Workouts Logged</span>
+                        <strong id="totalWorkouts">0</strong>
+                        <small>Total workouts</small>
+                    </div>
+                </div>
+
+
+                <div class="stat-card pink">
+                    <div class="stat-icon">🥗</div>
+
+                    <div>
+                        <span>Nutrition Items</span>
+                        <strong id="totalNutrition">0</strong>
+                        <small>Food database</small>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- DASHBOARD GRID -->
+            <div class="dashboard-grid">
+
+                <div class="panel large-panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <span class="eyebrow">ACTIVITY</span>
+                            <h3>Weekly User Activity</h3>
+                        </div>
+
+                        <span class="panel-badge">Last 7 Days</span>
+                    </div>
+
+                    <div class="activity-chart">
+
+                        <div class="chart-column">
+                            <div class="bar" style="height:45%"></div>
+                            <span>Mon</span>
+                        </div>
+
+                        <div class="chart-column">
+                            <div class="bar" style="height:65%"></div>
+                            <span>Tue</span>
+                        </div>
+
+                        <div class="chart-column">
+                            <div class="bar" style="height:52%"></div>
+                            <span>Wed</span>
+                        </div>
+
+                        <div class="chart-column">
+                            <div class="bar" style="height:82%"></div>
+                            <span>Thu</span>
+                        </div>
+
+                        <div class="chart-column">
+                            <div class="bar" style="height:70%"></div>
+                            <span>Fri</span>
+                        </div>
+
+                        <div class="chart-column">
+                            <div class="bar" style="height:92%"></div>
+                            <span>Sat</span>
+                        </div>
+
+                        <div class="chart-column">
+                            <div class="bar" style="height:60%"></div>
+                            <span>Sun</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <span class="eyebrow">GOALS</span>
+                            <h3>User Goal Distribution</h3>
+                        </div>
+                    </div>
+
+                    <div class="goal-list">
+
+                        <div class="goal-item">
+                            <div>
+                                <span>Fat Loss</span>
+                                <strong>45%</strong>
+                            </div>
+
+                            <div class="progress">
+                                <span style="width:45%"></span>
+                            </div>
+                        </div>
+
+                        <div class="goal-item">
+                            <div>
+                                <span>Muscle Gain</span>
+                                <strong>30%</strong>
+                            </div>
+
+                            <div class="progress">
+                                <span style="width:30%"></span>
+                            </div>
+                        </div>
+
+                        <div class="goal-item">
+                            <div>
+                                <span>Maintenance</span>
+                                <strong>25%</strong>
+                            </div>
+
+                            <div class="progress">
+                                <span style="width:25%"></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECENT USERS -->
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <span class="eyebrow">USERS</span>
+                        <h3>Recently Registered Users</h3>
+                    </div>
+
+                    <button class="small-btn" onclick="showPage('users')">
+                        View All →
+                    </button>
+
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Goal</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="recentUsersTable"></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- USERS PAGE -->
+        <section id="usersPage" class="page">
+
+            <div class="page-heading">
+
+                <div>
+                    <span class="eyebrow">MANAGEMENT</span>
+                    <h2>User Management</h2>
+                    <p>View and manage registered fitness users.</p>
+                </div>
+
+                <button class="primary-btn" onclick="openUserModal()">
+                    + Add User
+                </button>
+
+            </div>
+
+
+            <div class="toolbar">
+
+                <input
+                    type="text"
+                    id="userSearch"
+                    placeholder="🔍 Search users..."
+                    oninput="renderUsers()"
+                >
+
+                <select id="statusFilter" onchange="renderUsers()">
+                    <option value="all">All Status</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Age</th>
+                                <th>Goal</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="usersTable"></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EXERCISES PAGE -->
+        <section id="exercisesPage" class="page">
+
+            <div class="page-heading">
+
+                <div>
+                    <span class="eyebrow">FITNESS CONTENT</span>
+                    <h2>Exercise Database</h2>
+                    <p>Manage exercises available to fitness users.</p>
+                </div>
+
+                <button class="primary-btn" onclick="addExercise()">
+                    + Add Exercise
+                </button>
+
+            </div>
+
+
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="exerciseSearch"
+                    placeholder="🔍 Search exercises..."
+                    oninput="renderExercises()"
+                >
+            </div>
+
+
+            <div id="exerciseGrid" class="content-grid"></div>
+
+        </section>
+
+
+        <!-- NUTRITION PAGE -->
+        <section id="nutritionPage" class="page">
+
+            <div class="page-heading">
+
+                <div>
+                    <span class="eyebrow">NUTRITION CONTENT</span>
+                    <h2>Nutrition Database</h2>
+                    <p>Manage food and nutrition information.</p>
+                </div>
+
+                <button class="primary-btn" onclick="addNutrition()">
+                    + Add Food
+                </button>
+
+            </div>
+
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="nutritionSearch"
+                    placeholder="🔍 Search food..."
+                    oninput="renderNutrition()"
+                >
+
+            </div>
+
+
+            <div id="nutritionGrid" class="content-grid"></div>
+
+        </section>
+
+
+        <!-- REPORTS PAGE -->
+        <section id="reportsPage" class="page">
+
+            <div class="page-heading">
+
+                <div>
+                    <span class="eyebrow">ANALYTICS</span>
+                    <h2>Reports & Analytics</h2>
+                    <p>Monitor overall fitness platform activity.</p>
+                </div>
+
+            </div>
+
+
+            <div class="report-grid">
+
+                <div class="report-card">
+                    <span>Workout Completion</span>
+                    <strong>78%</strong>
+                    <div class="report-progress">
+                        <span style="width:78%"></span>
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <span>Average Workouts / User</span>
+                    <strong>4.6</strong>
+                    <small>This week</small>
+                </div>
+
+                <div class="report-card">
+                    <span>Active User Rate</span>
+                    <strong id="reportActiveRate">0%</strong>
+                    <small>Current users</small>
+                </div>
+
+            </div>
+
+
+            <div class="panel report-panel">
+
+                <div class="panel-header">
+                    <div>
+                        <span class="eyebrow">PLATFORM</span>
+                        <h3>System Summary</h3>
+                    </div>
+                </div>
+
+                <div class="summary-grid">
+
+                    <div>
+                        <span>Total Users</span>
+                        <strong id="reportUsers">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Active Users</span>
+                        <strong id="reportActive">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Exercise Library</span>
+                        <strong id="reportExercises">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Nutrition Library</span>
+                        <strong id="reportNutrition">0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- USER MODAL -->
+<div id="userModal" class="modal hidden">
+
+    <div class="modal-card">
+
+        <button class="close-btn" onclick="closeUserModal()">×</button>
+
+        <h2>Add New User</h2>
+        <p>Create a new fitness tracker user.</p>
+
+        <form id="userForm">
+
+            <input id="newName" placeholder="Full Name" required>
+
+            <input id="newEmail" type="email" placeholder="Email" required>
+
+            <input id="newAge" type="number" placeholder="Age" required>
+
+            <select id="newGoal">
+                <option>Fat Loss</option>
+                <option>Muscle Gain</option>
+                <option>Maintenance</option>
+            </select>
+
+            <select id="newStatus">
+                <option>Active</option>
+                <option>Inactive</option>
+            </select>
+
+            <button class="primary-btn" type="submit">
+                Create User
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div id="toast" class="toast"></div>
+
+<script src="admin.js"></script>
+
+</body>
+</html>
